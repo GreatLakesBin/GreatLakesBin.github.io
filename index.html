@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Great Lakes Bin Cleaning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef4f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'Noto Sans', sans-serif;
+            color: #1a2e2c;
+            line-height: 1.4;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        /* main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* inner padding for sections */
+        .section-pad {
+            padding: 2rem 1.8rem;
+        }
+
+        /* header area with logo + tagline */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e0eae7;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            max-width: 90px;
+            height: auto;
+            display: block;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #2c5f5a;
+            letter-spacing: -0.2px;
+            border-left: 2px solid #cbdad6;
+            padding-left: 1rem;
+        }
+
+        .logo-text span {
+            font-weight: 600;
+            color: #1f4e49;
+        }
+
+        .cta-top {
+            background: #f8faf9;
+            padding: 0.7rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1f4e49;
+        }
+
+        /* hero / what we do row */
+        .hero {
+            background: #f6faf8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-bottom: 1px solid #dee9e5;
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #16453f;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #2c504a;
+            margin-bottom: 1.8rem;
+            max-width: 500px;
+        }
+
+        .price-badge {
+            background: #e1f0ec;
+            display: inline-block;
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: #1b5e56;
+            letter-spacing: -0.5px;
+            margin-top: 0.5rem;
+        }
+
+        .price-badge small {
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .hero-media {
+            flex: 1.2;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffffd9;
+            border-radius: 1.5rem;
+            padding: 1rem;
+        }
+
+        .flier-placeholder {
+            background: #eef2f0;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .flier-img {
+            max-width: 100%;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .caption-small {
+            font-size: 0.7rem;
+            color: #5f7c76;
+            margin-top: 0.5rem;
+        }
+
+        /* why choose us grid */
+        .why-section {
+            background: white;
+            border-bottom: 1px solid #e9efec;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #154e47;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+
+        .feature-card {
+            background: #fafdfb;
+            flex: 1;
+            min-width: 160px;
+            padding: 1.3rem 1rem;
+            border-radius: 1.5rem;
+            border: 1px solid #e0ece7;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1d5a52;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #43645e;
+        }
+
+        /* before after row (simple using images or demo) */
+        .before-after {
+            background: #f9fdfb;
+            padding: 1.8rem;
+            margin: 0 1.8rem 1.8rem 1.8rem;
+            border-radius: 1.5rem;
+            border: 1px solid #deece7;
+        }
+
+        .ba-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e5c53;
+        }
+
+        .ba-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+        }
+
+        .ba-item {
+            background: white;
+            border-radius: 1.2rem;
+            text-align: center;
+            flex: 1;
+            min-width: 180px;
+            padding: 0.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .ba-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2b6b61;
+            letter-spacing: 0.3px;
+        }
+
+        .sim-before, .sim-after {
+            background: #eef3f0;
+            border-radius: 1rem;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #4a6f67;
+            font-weight: 500;
+            margin: 0.8rem 0;
+            border: 1px dashed #bdd3cb;
+        }
+
+        /* contact & location row */
+        .contact-location {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #f2f7f5;
+            border-radius: 1.5rem;
+            margin: 1.2rem 1.8rem 2rem 1.8rem;
+            padding: 1.8rem;
+        }
+
+        .info-block {
+            flex: 1;
+        }
+
+        .info-block h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f5e55;
+            margin-bottom: 0.7rem;
+            border-left: 3px solid #47978a;
+            padding-left: 0.8rem;
+        }
+
+        .contact-detail {
+            font-size: 1rem;
+            margin: 0.6rem 0;
+            color: #1e3e3a;
+            word-break: break-word;
+        }
+
+        .contact-detail a {
+            color: #1f6e63;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdcd7;
+        }
+
+        .contact-detail a:hover {
+            color: #0d4c44;
+            border-bottom-color: #0d4c44;
+        }
+
+        .location-text {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .button-booking {
+            background: #1f6e63;
+            color: white;
+            border: none;
+            padding: 0.85rem 1.6rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 60px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+
+        .button-booking:hover {
+            background: #0d574c;
+        }
+
+        /* footer */
+        .footer {
+            background: #e2ede9;
+            text-align: center;
+            padding: 1.4rem;
+            font-size: 0.8rem;
+            color: #2e5d55;
+            border-top: 1px solid #cbdcd6;
+        }
+
+        /* mobile responsiveness */
+        @media (max-width: 720px) {
+            body {
+                padding: 0.8rem;
+            }
+            .section-pad {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .price-badge {
+                font-size: 1.4rem;
+                padding: 0.3rem 1.2rem;
+            }
+            .features-grid {
+                flex-direction: column;
+            }
+            .contact-location {
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+            .before-after {
+                margin: 0 1rem 1.5rem 1rem;
+                padding: 1rem;
+            }
+            .logo-text {
+                font-size: 0.9rem;
+            }
+            .cta-top {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* subtle human-made touches: handwritten style tag? just soft edges */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        hr {
+            margin: 0.5rem 0;
+            border: 0;
+            height: 1px;
+            background: #dce9e4;
+        }
+
+        .note-human {
+            font-style: normal;
+            font-size: 0.75rem;
+            color: #54736b;
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        /* simple clean list */
+        .clean-list {
+            list-style: none;
+            margin-top: 0.4rem;
+        }
+        .clean-list li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .clean-list li:before {
+            content: "–";
+            color: #47978a;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- header with logo (logo.jpg) and small contact vibe -->
+    <div class="header section-pad">
+        <div class="logo-area">
+            <img src="logo.jpg" alt="Great Lakes Bin Cleaning Logo" class="logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%232c5f5a%22%2F%3E%3Ctext%20x%3D%2215%22%20y%3D%2255%22%20fill%3D%22white%22%20font-size%3D%2212%22%3EGLB%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            <div class="logo-text">
+                <span>GREAT LAKES</span><br>
+                BIN CLEANING
+            </div>
+        </div>
+        <div class="cta-top">
+            local + reliable
+        </div>
+    </div>
+
+    <!-- hero: what we do + flier image (flier.jpg) -->
+    <div class="hero section-pad">
+        <div class="hero-text">
+            <h1>CLEAN BINS. <br> CLEANER COMMUNITY.</h1>
+            <p>We remove dirt, grime, bacteria, and bad odors to keep your bins fresh, sanitary and looking like new.</p>
+            <div class="price-badge">
+                ONLY $30 <small>/ per bin</small>
+            </div>
+            <div style="margin-top: 1.8rem;">
+                <span style="background:#eef2f0; padding:0.3rem 0.8rem; border-radius:30px; font-size:0.8rem;">Great Lakes Bin Cleaning</span>
+            </div>
+        </div>
+        <div class="hero-media">
+            <div class="flier-placeholder">
+                <img src="flier.jpg" alt="Great Lakes Bin Cleaning flier" class="flier-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20300%20200%22%3E%3Crect%20width%3D%22300%22%20height%3D%22200%22%20fill%3D%22%23cbdad6%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%22100%22%20fill%3D%22%232a5a52%22%3ECLEAN%20BINS%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                <div class="caption-small">shiny, eco-friendly</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="why-section section-pad">
+        <div class="section-title">WHY CHOOSE US?</div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Kills Bacteria</h3>
+                <p>Eliminates germs & harmful pathogens, keeping your family safe.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Eliminates Odors</h3>
+                <p>Removes stubborn smells, leaving bins fresh and clean.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Eco-Friendly</h3>
+                <p>Biodegradable solutions safe for pets, plants & planet.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Local & Reliable</h3>
+                <p>Locally owned, service you can trust every time.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="before-after">
+        <div class="ba-title">From grime to pristine</div>
+        <div class="ba-grid">
+            <div class="ba-item">
+                <div class="ba-label">WITHOUT US</div>
+                <div class="sim-before">
+                     dirt, grime, bacteria
+                </div>
+                <p style="font-size:0.75rem; color:#597972;">Built-up residue & foul smells</p>
+            </div>
+            <div class="ba-item">
+                <div class="ba-label">WITH US</div>
+                <div class="sim-after">
+                     sanitized, fresh, clean
+                </div>
+                <p style="font-size:0.75rem; color:#597972;">Like-new condition, odor-free</p>
+            </div>
+        </div>
+        <div class="note-human">
+            * High-pressure wash + eco-friendly sanitizer
+        </div>
+    </div>
+
+    <!-- location and contact + booking call to action (human style) -->
+    <div class="contact-location">
+        <div class="info-block">
+            <h3>📍 Service Location</h3>
+            <div class="contact-detail location-text">
+                We come anywhere in Shelby Township, Michigan.
+            </div>
+            <div class="contact-detail" style="margin-top: 0.5rem;">
+                <strong>We come to your home</strong> — curbside bin cleaning.
+            </div>
+            <div style="margin-top: 1rem;">
+                <h3 style="border-left-color:#e2b87a; margin-top: 0;">📞 Contact & Booking</h3>
+                <div class="contact-detail">
+                    Email: <a href="mailto:greatlakesbincleaning313@gmail.com">greatlakesbincleaning313@gmail.com</a>
+                </div>
+                <div class="contact-detail">
+                    Phone / Text: <a href="tel:">(number currently unavailable)</a> <span style="font-size:0.75rem;">(example, update as needed)</span>
+                </div>
+                <div class="contact-detail">
+                    Schedule: 6am – 6pm. Negotiate a date that fits best!
+                </div>
+            </div>
+        </div>
+        <div class="info-block">
+            <h3>✅ Simple & Clean</h3>
+            <ul class="clean-list">
+                <li>Only $30 per standard residential bin</li>
+                <li>No hidden fees, no contracts</li>
+                <li>We clean wheeled trash & recycling bins</li>
+                <li>Environmentally safe pressure wash</li>
+            </ul>
+            <div class="button-booking" id="bookNowBtn">
+                BOOK TODAY!  clean bins, better living
+            </div>
+            <p style="font-size:0.7rem; margin-top:0.8rem; color:#537a71;">Call or email to reserve your spot. Same-week service available.</p>
+        </div>
+    </div>
+
+    <!-- extra reassurance: community note -->
+    <div style="padding: 0 1.8rem 1.8rem 1.8rem;">
+        <div style="background:#fefcf5; border-radius:1rem; padding:1rem; text-align:center; border:1px solid #e3efe9;">
+            <span style="font-weight:500;">GREAT LAKES BIN CLEANING — proud to serve neighborhoods with care.</span>
+        </div>
+    </div>
+
+    <!-- footer with location & contact summary again (clean) -->
+    <div class="footer">
+        <p>Great Lakes Bin Cleaning — clean bins, cleaner community</p>
+        <p style="margin-top: 6px;">📍 Shelby Township, Michigan<br>
+        ✉ greatlakesbincleaning313@gmail.com </p>
+        <p style="margin-top:8px; font-size:0.7rem;">eco-friendly solutions • shelby owned • reliable service</p>
+    </div>
+</div>
+
+<!-- simple interactive confirmation without emojis (human-made, non intrusive) -->
+<script>
+    (function() {
+        const bookBtn = document.getElementById('bookNowBtn');
+        if (bookBtn) {
+            bookBtn.addEventListener('click', function(e) {
+                // Gentle, human-style interaction: just a small alert or mailto suggestion
+                const userChoice = confirm("We’d love to clean your bins. Would you like to send an email request?");
+                if (userChoice) {
+                    window.location.href = "mailto:greatlakesbincleaning313@gmail.com?subject=Bin Cleaning Request&body=Hello, I'd like to schedule a bin cleaning. Thank you!";
+                } else {
+                    // In case user clicks cancel, just show friendly message
+                    alert("You can reach us at greatlakesbincleaning313@gmail.com - Thank you!");
+                }
+            });
+        }
+
+        // Adding minor hover details and any missing image fallback
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.hasAttribute('data-fallback-set')) {
+                    this.setAttribute('data-fallback-set', 'true');
+                    if (this.src.includes('logo.jpg')) {
+                        this.alt = "Great Lakes Bin Cleaning Logo";
+                        this.style.opacity = '0.8';
+                    } else if (this.src.includes('flier.jpg')) {
+                        this.alt = "Great Lakes Bin Cleaning flier preview";
+                    }
+                }
+            });
+        });
+    })();
+</script>
+
+
+</body>
+</html>
